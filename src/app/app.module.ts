@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core'
 import { SuiModule } from 'ng2-semantic-ui'
 
 import { AppRoutingModule } from './app-routing.module'
-import { AppComponent } from './app.component'
+import { AppComponent } from './app.component';
+import { SearchComponent } from './components/search/search.component'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
