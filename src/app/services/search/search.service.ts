@@ -19,12 +19,12 @@ export class SearchService {
   searchUsers(searchValue: string) {
     axios
       .get(
-        `${environment.apiSearchUserUrl}/search/users?q=${searchValue}&type=users`
-        // {
-        //   headers: {
-        //     Authorization: 'token ec54fda678f308d5ca9408d1d27408a403fef8c6'
-        //   }
-        // }
+        `${environment.apiSearchUserUrl}/search/users?q=${searchValue}&type=users`,
+        {
+          headers: {
+            Authorization: `token ${environment.apiAccessKey}`
+          }
+        }
       )
       .then(res => {
         this.clearUsers()
