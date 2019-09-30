@@ -6,12 +6,14 @@ import { SuiModule, SuiSearchModule } from '@aligorji/ng2-semantic-ui'
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component';
-import { SearchComponent } from './components/search/search.component'
+import { SearchComponent } from './components/search/search.component';
+import { UserComponent } from './components/user/user.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent
+    SearchComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
