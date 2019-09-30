@@ -28,7 +28,7 @@
       <div class="item" *ngFor="let user of users">
         <img class="ui avatar image" [src]="user.avatarUrl">
         <div class="content">
-          <p class="header">{{ user.login }}</p>
+          <a class="header" (click)="navigateToUser(user.login)">{{ user.login }}</a>
         </div>
       </div>
     </div>

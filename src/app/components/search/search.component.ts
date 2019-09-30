@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { SearchService } from 'src/app/services/search/search.service';
-import { User } from 'src/app/models/user/user';
+import { Component, OnInit } from '@angular/core'
+import { Router } from '@angular/router'
+
+import { SearchService } from 'src/app/services/search/search.service'
+import { User } from 'src/app/models/user/user'
 
 @Component({
   selector: 'app-search',
@@ -11,11 +13,14 @@ export class SearchComponent implements OnInit {
   searchValue = ''
   users: User[]
 
-  constructor(private searchService: SearchService) {
+  constructor(private searchService: SearchService, private router: Router) {
     this
       .searchService
       .usersChange
-      .subscribe(users => this.users = users)
+      .subscribe(users => {
+        this.users = users
+        console.log({users})
+      })
   }
 
   ngOnInit() {
@@ -25,4 +30,6 @@ export class SearchComponent implements OnInit {
   }
 
   onSubmit() {this.searchService.searchUsers(this.searchValue)}
+
+  navigateToUser(username: string) {this.router.navigate(['user', username])}
 }

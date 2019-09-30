@@ -6,7 +6,7 @@ import { UserComponent } from './components/user/user.component'
 
 const routes: Routes = [
   { path: 'search', component: SearchComponent },
-  { path: 'user/', component: UserComponent },
+  { path: 'user/:username', component: UserComponent },
   { path: '', redirectTo: '/search', pathMatch: 'full' }
 ]
 

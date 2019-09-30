@@ -10,7 +10,6 @@ import { User } from 'src/app/models/user/user'
   providedIn: 'root'
 })
 export class SearchService {
-  // searchValue = 'peter'
   users: User[] = []
   usersChange: Subject<User[]> = new Subject<User[]>()
 
@@ -19,16 +18,18 @@ export class SearchService {
   searchUsers(searchValue: string) {
     axios
       .get(
-        `${environment.apiSearchUserUrl}/search/users?q=${searchValue}&type=users`,
-        {
-          headers: {
-            Authorization: `token ${environment.apiAccessKey}`
-          }
-        }
+        `${environment.apiUrl}/search/users?q=${searchValue}&type=users`
+        // {
+        //   headers: {
+        //     Authorization: `token ${environment.apiAccessKey}`
+        //   }
+        // }
       )
       .then(res => {
+        const body = res.data
+        console.log({body})
         this.clearUsers()
-        res.data.items.forEach((_user: any) => {
+        res.data.items.forEach(_user => {
           this.users.push(new User(
             _user.avatar_url,
             _user.events_url,

@@ -1,4 +1,42 @@
 <div class="container flex-column-center">
-  <div class="title-div flex-column-center"></div>
-  <div class="results-div"></div>
+  <div class="title-div flex-column-center">
+    <!-- <div class="title-image">
+      <img [src]="user.avatarUrl" [alt]="user.name" class="ui avatar">
+    </div>
+    <div class="title-content">
+      <h1>{{ user.name }}</h1>
+    </div> -->
+    <div class="ui card">
+      <div>
+        <img class="ui tiny circular image" [src]="user.avatarUrl" [alt]="user.name">
+      </div>
+      <div class="content">
+        <a class="header">{{ user.name }}</a>
+        <div class="meta">@{{ user.login }}</div>
+        <div class="description">{{ user.bio }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="repositories-div">
+    <sui-accordion class="styled fluid">
+      <sui-accordion-panel [isOpen]="true">
+        <div title>
+            <i class="dropdown icon"></i>
+            First Panel
+        </div>
+        <div content>
+            <p>Add classes to the <code>sui-accordion</code> element to apply styles.</p>
+        </div>
+      </sui-accordion-panel>
+      <sui-accordion-panel>
+        <div title>
+            <i class="dropdown icon"></i>
+            Second Panel
+        </div>
+        <div content>
+            <p>Second panel content.</p>
+        </div>
+      </sui-accordion-panel>
+    </sui-accordion>
+  </div>
 </div>
