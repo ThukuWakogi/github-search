@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@aligorji/ng2-semantic-ui": "^1.0.8-0.10.0-alpha.6",
     "@angular/animations": "~8.2.5",
     "@angular/common": "~8.2.5",
     "@angular/compiler": "~8.2.5",
@@ -20,7 +21,6 @@
     "@angular/platform-browser-dynamic": "~8.2.5",
     "@angular/router": "~8.2.5",
     "axios": "^0.19.0",
-    "ng2-semantic-ui": "^0.9.7",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
