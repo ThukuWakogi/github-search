@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
+import { FormsModule } from '@angular/forms';
 
 import { SuiModule } from 'ng2-semantic-ui'
 
@@ -15,7 +16,8 @@ import { SearchComponent } from './components/search/search.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SuiModule
+    SuiModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
