@@ -1,9 +1,36 @@
-<div class="container">
-  <button class="ui button">
-    Follow
-  </button>
-  <div class="ui left icon input">
-    <input type="text" placeholder="Search...">
-    <i class="search icon"></i>
+<div class="container flex-column-center">
+  <div class="search-div flex-column-center">
+    <h1>GitHub Search</h1>
+    <form #searchForm='ngForm' class="flex-row-justify-center" #searchForm (ngSubmit)='onSubmit()'>
+      <div class="ui left icon input form-group">
+        <input
+          type="text"
+          class="form-control"
+          id="search"
+          [(ngModel)]="searchValue"
+          name="search"
+          #search='ngModel'
+          required
+          placeholder="Type in a username..."
+        >
+        <i class="search icon"></i>
+      </div>
+      <div *ngIf="search.value === '' else disabledButton">
+        <button class="ui primary button disabled" type="submit">search</button>
+      </div>
+      <ng-template #disabledButton>
+          <button class="ui primary button" type="submit">search</button>
+      </ng-template>
+    </form>
+  </div>
+  <div class="results-div">
+    <div class="ui big relaxed divided list flex-column-center user-list">
+      <div class="item" *ngFor="let user of users">
+        <img class="ui avatar image" [src]="user.avatarUrl">
+        <div class="content">
+          <p class="header">{{ user.login }}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
