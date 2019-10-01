@@ -14,6 +14,7 @@ To get a copy of this project in your local machine follow the following steps
 
 - clone the repository from github to your local machine
 - on the root of the directory, run `npm install`
+- to run the application, type in `ng serve`
 
 ## License
 
