@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router'
 
 import { UserService } from 'src/app/services/user/user.service'
 import { User } from 'src/app/models/user/user'
-import { environment } from 'src/environments/environment'
+import { RepositoryService } from 'src/app/services/repository/repository.service'
+import { Repository } from 'src/app/models/repository/repository'
 
 @Component({
   selector: 'app-user',
@@ -12,15 +13,24 @@ import { environment } from 'src/environments/environment'
 })
 export class UserComponent implements OnInit {
   user: User = new User()
+  repositories: Repository[] = []
 
-  constructor(private route: ActivatedRoute, private userService: UserService) {
+  constructor(
+    private route: ActivatedRoute,
+    private userService: UserService,
+    private repositoryService: RepositoryService
+  ) {
     const username = this.route.snapshot.paramMap.get('username')
-    console.log({username})
     this.user = this.userService.getUser(username)
+    this.repositories = this.repositoryService.getRepositories(username)
     this
       .userService
       .userChange
       .subscribe(user => {this.user = user})
+    this
+      .repositoryService
+      .repositoriesChange
+      .subscribe(repositories => this.repositories = repositories)
   }
 
   ngOnInit() {

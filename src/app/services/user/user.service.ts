@@ -17,7 +17,6 @@ export class UserService {
     axios
       .get(`${environment.apiUrl}/users/${username}`)
       .then(res => {
-        console.log(res.data)
         this.user = new User(
           res.data.avatar_url,
           res.data.events_url,
