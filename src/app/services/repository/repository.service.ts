@@ -16,13 +16,11 @@ export class RepositoryService {
   constructor() { }
 
   fetchRepositories(username: string) {
-    console.log({username})
     this.clearRepositories()
     axios
       .get(`${environment.apiUrl}/users/${username}/repos`)
       .then(res => {
         const body = res.data
-        console.log(res.data[1])
         res.data.forEach((_repository: any) => {
           this.repositories.push(new Repository(
             _repository.archived,
@@ -41,7 +39,6 @@ export class RepositoryService {
         });
         this.repositoriesChange.next(this.repositories)
         const repos = this.repositories
-        console.log({repos})
       })
       .catch(err => console.error(err)
       )

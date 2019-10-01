@@ -27,7 +27,6 @@ export class SearchService {
       )
       .then(res => {
         const body = res.data
-        console.log({body})
         this.clearUsers()
         res.data.items.forEach(_user => {
           this.users.push(new User(

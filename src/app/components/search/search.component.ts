@@ -17,10 +17,7 @@ export class SearchComponent implements OnInit {
     this
       .searchService
       .usersChange
-      .subscribe(users => {
-        this.users = users
-        console.log({users})
-      })
+      .subscribe(users => {this.users = users})
   }
 
   ngOnInit() {
